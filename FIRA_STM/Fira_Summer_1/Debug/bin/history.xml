@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -g -Map=Fira_Summer_1.map -O3 --gc-sections -lstdc++ -LC:\CooCox\CoIDE\configuration\ProgramData\Fira_Summer_1 -TC:\CooCox\CoIDE\configuration\ProgramData\Fira_Summer_1/arm-gcc-link.ld -g">
+      <target file="Fira_Summer_1.elf" lastModified="150ddc27b41">
+         <source file="..\obj\stm32f4xx_syscfg.o" lastModified="150dd7cc8be"/>
+         <source file="..\obj\stm32f4xx_usart.o" lastModified="150dd7ccb55"/>
+         <source file="..\obj\tm_stm32f4_nrf24l01.o" lastModified="150dd7ccde0"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="150dd7ccebf"/>
+         <source file="..\obj\main.o" lastModified="150ddc27895"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="150dd7cd301"/>
+         <source file="..\obj\tm_stm32f4_delay.o" lastModified="150dd7cd3db"/>
+         <source file="..\obj\tm_stm32f4_spi.o" lastModified="150dd7cd544"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="150dd7cd60b"/>
+         <source file="..\obj\stm32f4xx_flash.o" lastModified="150dd7cd7bf"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="150dd7cd868"/>
+         <source file="..\obj\syscalls.o" lastModified="150dd7cd997"/>
+         <source file="..\obj\stm32f4xx_spi.o" lastModified="150dd7cda7c"/>
+         <source file="..\obj\stm32f4xx_exti.o" lastModified="150dd7cdb3d"/>
+         <source file="..\obj\misc.o" lastModified="150dd7cdc40"/>
+         <source file="..\obj\tm_stm32f4_gpio.o" lastModified="150dd7cdd88"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="150dd7ce053"/>
+         <source file="..\obj\Peripherals.o" lastModified="150dd7ce146"/>
+      </target>
+   </processor>
+</history>

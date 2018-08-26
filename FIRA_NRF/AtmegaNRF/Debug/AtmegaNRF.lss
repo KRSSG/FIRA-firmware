@@ -1,0 +1,820 @@
+
+AtmegaNRF.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000a  00800100  000003c2  00000456  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000003c2  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000001c  0080010a  0080010a  00000460  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  00000460  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000085  00000000  00000000  00000b2c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 000000a0  00000000  00000000  00000bb8  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000938  00000000  00000000  00000c58  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000308  00000000  00000000  00001590  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000004e9  00000000  00000000  00001898  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000001f8  00000000  00000000  00001d84  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000268  00000000  00000000  00001f7c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000046a  00000000  00000000  000021e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	19 c0       	rjmp	.+50     	; 0x34 <__ctors_end>
+   2:	94 c0       	rjmp	.+296    	; 0x12c <__vector_1>
+   4:	32 c0       	rjmp	.+100    	; 0x6a <__bad_interrupt>
+   6:	31 c0       	rjmp	.+98     	; 0x6a <__bad_interrupt>
+   8:	30 c0       	rjmp	.+96     	; 0x6a <__bad_interrupt>
+   a:	2f c0       	rjmp	.+94     	; 0x6a <__bad_interrupt>
+   c:	2e c0       	rjmp	.+92     	; 0x6a <__bad_interrupt>
+   e:	2d c0       	rjmp	.+90     	; 0x6a <__bad_interrupt>
+  10:	2c c0       	rjmp	.+88     	; 0x6a <__bad_interrupt>
+  12:	2b c0       	rjmp	.+86     	; 0x6a <__bad_interrupt>
+  14:	2a c0       	rjmp	.+84     	; 0x6a <__bad_interrupt>
+  16:	29 c0       	rjmp	.+82     	; 0x6a <__bad_interrupt>
+  18:	28 c0       	rjmp	.+80     	; 0x6a <__bad_interrupt>
+  1a:	27 c0       	rjmp	.+78     	; 0x6a <__bad_interrupt>
+  1c:	26 c0       	rjmp	.+76     	; 0x6a <__bad_interrupt>
+  1e:	25 c0       	rjmp	.+74     	; 0x6a <__bad_interrupt>
+  20:	24 c0       	rjmp	.+72     	; 0x6a <__bad_interrupt>
+  22:	23 c0       	rjmp	.+70     	; 0x6a <__bad_interrupt>
+  24:	57 c0       	rjmp	.+174    	; 0xd4 <__vector_18>
+  26:	21 c0       	rjmp	.+66     	; 0x6a <__bad_interrupt>
+  28:	20 c0       	rjmp	.+64     	; 0x6a <__bad_interrupt>
+  2a:	1f c0       	rjmp	.+62     	; 0x6a <__bad_interrupt>
+  2c:	1e c0       	rjmp	.+60     	; 0x6a <__bad_interrupt>
+  2e:	1d c0       	rjmp	.+58     	; 0x6a <__bad_interrupt>
+  30:	1c c0       	rjmp	.+56     	; 0x6a <__bad_interrupt>
+  32:	1b c0       	rjmp	.+54     	; 0x6a <__bad_interrupt>
+
+00000034 <__ctors_end>:
+  34:	11 24       	eor	r1, r1
+  36:	1f be       	out	0x3f, r1	; 63
+  38:	cf ef       	ldi	r28, 0xFF	; 255
+  3a:	d4 e0       	ldi	r29, 0x04	; 4
+  3c:	de bf       	out	0x3e, r29	; 62
+  3e:	cd bf       	out	0x3d, r28	; 61
+
+00000040 <__do_copy_data>:
+  40:	11 e0       	ldi	r17, 0x01	; 1
+  42:	a0 e0       	ldi	r26, 0x00	; 0
+  44:	b1 e0       	ldi	r27, 0x01	; 1
+  46:	e2 ec       	ldi	r30, 0xC2	; 194
+  48:	f3 e0       	ldi	r31, 0x03	; 3
+  4a:	02 c0       	rjmp	.+4      	; 0x50 <__do_copy_data+0x10>
+  4c:	05 90       	lpm	r0, Z+
+  4e:	0d 92       	st	X+, r0
+  50:	aa 30       	cpi	r26, 0x0A	; 10
+  52:	b1 07       	cpc	r27, r17
+  54:	d9 f7       	brne	.-10     	; 0x4c <__do_copy_data+0xc>
+
+00000056 <__do_clear_bss>:
+  56:	11 e0       	ldi	r17, 0x01	; 1
+  58:	aa e0       	ldi	r26, 0x0A	; 10
+  5a:	b1 e0       	ldi	r27, 0x01	; 1
+  5c:	01 c0       	rjmp	.+2      	; 0x60 <.do_clear_bss_start>
+
+0000005e <.do_clear_bss_loop>:
+  5e:	1d 92       	st	X+, r1
+
+00000060 <.do_clear_bss_start>:
+  60:	a6 32       	cpi	r26, 0x26	; 38
+  62:	b1 07       	cpc	r27, r17
+  64:	e1 f7       	brne	.-8      	; 0x5e <.do_clear_bss_loop>
+  66:	7e d0       	rcall	.+252    	; 0x164 <main>
+  68:	aa c1       	rjmp	.+852    	; 0x3be <_exit>
+
+0000006a <__bad_interrupt>:
+  6a:	ca cf       	rjmp	.-108    	; 0x0 <__vectors>
+
+0000006c <Initialise_UART>:
+volatile uint8_t send_cnt = 0, rec_cnt = 0;
+volatile int data_flag=0,irq_flag=0;
+
+void Initialise_UART(uint16_t ubrrvalue)
+{
+	DDRD |=(1<<DDD1);
+  6c:	51 9a       	sbi	0x0a, 1	; 10
+	DDRD &= ~(1<<DDD0);
+  6e:	50 98       	cbi	0x0a, 0	; 10
+	PORTD |= (1<<DDD0)|(1<<DDD1);
+  70:	2b b1       	in	r18, 0x0b	; 11
+  72:	23 60       	ori	r18, 0x03	; 3
+  74:	2b b9       	out	0x0b, r18	; 11
+	UBRR0H=(unsigned char)(ubrrvalue>>8);
+  76:	90 93 c5 00 	sts	0x00C5, r25
+	UBRR0L=(unsigned char)ubrrvalue;
+  7a:	80 93 c4 00 	sts	0x00C4, r24
+
+	UCSR0C = (3<<UCSZ00);
+  7e:	86 e0       	ldi	r24, 0x06	; 6
+  80:	80 93 c2 00 	sts	0x00C2, r24
+
+	UCSR0B = (1<<RXCIE0) | (1<<RXEN0) | (1<<TXEN0);
+  84:	88 e9       	ldi	r24, 0x98	; 152
+  86:	80 93 c1 00 	sts	0x00C1, r24
+}
+  8a:	08 95       	ret
+
+0000008c <Uart_Write>:
+
+void Uart_Write(uint8_t *Data)
+{
+  8c:	cf 93       	push	r28
+  8e:	df 93       	push	r29
+	for(rec_cnt=0; rec_cnt<PLOAD; rec_cnt++)
+  90:	10 92 0e 01 	sts	0x010E, r1
+  94:	20 91 0e 01 	lds	r18, 0x010E
+  98:	2b 30       	cpi	r18, 0x0B	; 11
+  9a:	b8 f4       	brcc	.+46     	; 0xca <Uart_Write+0x3e>
+	{	
+		while(!(UCSR0A & (1<<UDRE0)));
+  9c:	e0 ec       	ldi	r30, 0xC0	; 192
+  9e:	f0 e0       	ldi	r31, 0x00	; 0
+		UDR0=Data[rec_cnt];
+  a0:	c6 ec       	ldi	r28, 0xC6	; 198
+  a2:	d0 e0       	ldi	r29, 0x00	; 0
+
+void Uart_Write(uint8_t *Data)
+{
+	for(rec_cnt=0; rec_cnt<PLOAD; rec_cnt++)
+	{	
+		while(!(UCSR0A & (1<<UDRE0)));
+  a4:	20 81       	ld	r18, Z
+  a6:	25 ff       	sbrs	r18, 5
+  a8:	fd cf       	rjmp	.-6      	; 0xa4 <Uart_Write+0x18>
+		UDR0=Data[rec_cnt];
+  aa:	20 91 0e 01 	lds	r18, 0x010E
+  ae:	dc 01       	movw	r26, r24
+  b0:	a2 0f       	add	r26, r18
+  b2:	b1 1d       	adc	r27, r1
+  b4:	2c 91       	ld	r18, X
+  b6:	28 83       	st	Y, r18
+	UCSR0B = (1<<RXCIE0) | (1<<RXEN0) | (1<<TXEN0);
+}
+
+void Uart_Write(uint8_t *Data)
+{
+	for(rec_cnt=0; rec_cnt<PLOAD; rec_cnt++)
+  b8:	20 91 0e 01 	lds	r18, 0x010E
+  bc:	2f 5f       	subi	r18, 0xFF	; 255
+  be:	20 93 0e 01 	sts	0x010E, r18
+  c2:	20 91 0e 01 	lds	r18, 0x010E
+  c6:	2b 30       	cpi	r18, 0x0B	; 11
+  c8:	68 f3       	brcs	.-38     	; 0xa4 <Uart_Write+0x18>
+	{	
+		while(!(UCSR0A & (1<<UDRE0)));
+		UDR0=Data[rec_cnt];
+	}
+	rec_cnt = 0;		
+  ca:	10 92 0e 01 	sts	0x010E, r1
+}
+  ce:	df 91       	pop	r29
+  d0:	cf 91       	pop	r28
+  d2:	08 95       	ret
+
+000000d4 <__vector_18>:
+
+ISR(USART_RX_vect)
+{
+  d4:	1f 92       	push	r1
+  d6:	0f 92       	push	r0
+  d8:	0f b6       	in	r0, 0x3f	; 63
+  da:	0f 92       	push	r0
+  dc:	11 24       	eor	r1, r1
+  de:	8f 93       	push	r24
+  e0:	9f 93       	push	r25
+  e2:	ef 93       	push	r30
+  e4:	ff 93       	push	r31
+	TX_BUF[send_cnt]=UDR0;
+  e6:	90 91 0f 01 	lds	r25, 0x010F
+  ea:	80 91 c6 00 	lds	r24, 0x00C6
+  ee:	eb e1       	ldi	r30, 0x1B	; 27
+  f0:	f1 e0       	ldi	r31, 0x01	; 1
+  f2:	e9 0f       	add	r30, r25
+  f4:	f1 1d       	adc	r31, r1
+  f6:	80 83       	st	Z, r24
+	send_cnt++;
+  f8:	80 91 0f 01 	lds	r24, 0x010F
+  fc:	8f 5f       	subi	r24, 0xFF	; 255
+  fe:	80 93 0f 01 	sts	0x010F, r24
+	if(send_cnt == PLOAD)
+ 102:	80 91 0f 01 	lds	r24, 0x010F
+ 106:	8b 30       	cpi	r24, 0x0B	; 11
+ 108:	41 f4       	brne	.+16     	; 0x11a <__vector_18+0x46>
+	{
+		data_flag=1;
+ 10a:	81 e0       	ldi	r24, 0x01	; 1
+ 10c:	90 e0       	ldi	r25, 0x00	; 0
+ 10e:	90 93 0d 01 	sts	0x010D, r25
+ 112:	80 93 0c 01 	sts	0x010C, r24
+	    send_cnt = 0;
+ 116:	10 92 0f 01 	sts	0x010F, r1
+	}		
+}
+ 11a:	ff 91       	pop	r31
+ 11c:	ef 91       	pop	r30
+ 11e:	9f 91       	pop	r25
+ 120:	8f 91       	pop	r24
+ 122:	0f 90       	pop	r0
+ 124:	0f be       	out	0x3f, r0	; 63
+ 126:	0f 90       	pop	r0
+ 128:	1f 90       	pop	r1
+ 12a:	18 95       	reti
+
+0000012c <__vector_1>:
+ISR(INT0_vect)
+{
+ 12c:	1f 92       	push	r1
+ 12e:	0f 92       	push	r0
+ 130:	0f b6       	in	r0, 0x3f	; 63
+ 132:	0f 92       	push	r0
+ 134:	11 24       	eor	r1, r1
+ 136:	8f 93       	push	r24
+ 138:	9f 93       	push	r25
+	irq_flag=1;
+ 13a:	81 e0       	ldi	r24, 0x01	; 1
+ 13c:	90 e0       	ldi	r25, 0x00	; 0
+ 13e:	90 93 0b 01 	sts	0x010B, r25
+ 142:	80 93 0a 01 	sts	0x010A, r24
+}
+ 146:	9f 91       	pop	r25
+ 148:	8f 91       	pop	r24
+ 14a:	0f 90       	pop	r0
+ 14c:	0f be       	out	0x3f, r0	; 63
+ 14e:	0f 90       	pop	r0
+ 150:	1f 90       	pop	r1
+ 152:	18 95       	reti
+
+00000154 <init_exti>:
+void init_exti()
+{
+	DDRD &= ~(1<<DDD2);
+ 154:	52 98       	cbi	0x0a, 2	; 10
+	EICRA|=(1<<ISC01);
+ 156:	e9 e6       	ldi	r30, 0x69	; 105
+ 158:	f0 e0       	ldi	r31, 0x00	; 0
+ 15a:	80 81       	ld	r24, Z
+ 15c:	82 60       	ori	r24, 0x02	; 2
+ 15e:	80 83       	st	Z, r24
+	EIMSK|=(1<<INT0);
+ 160:	e8 9a       	sbi	0x1d, 0	; 29
+}
+ 162:	08 95       	ret
+
+00000164 <main>:
+int main(void)
+{
+	nRF24L01_Initial();
+ 164:	a6 d0       	rcall	.+332    	; 0x2b2 <nRF24L01_Initial>
+	nRF24L01_Config();
+ 166:	c2 d0       	rcall	.+388    	; 0x2ec <nRF24L01_Config>
+	init_exti();
+ 168:	f5 df       	rcall	.-22     	; 0x154 <init_exti>
+	Initialise_UART(25);
+ 16a:	89 e1       	ldi	r24, 0x19	; 25
+ 16c:	90 e0       	ldi	r25, 0x00	; 0
+ 16e:	7e df       	rcall	.-260    	; 0x6c <Initialise_UART>
+	sei();
+ 170:	78 94       	sei
+			data_flag=0;
+		}
+		if(irq_flag==1)
+		{
+			NRF24L01_Receive();
+			Uart_Write(RX_BUF);
+ 172:	c0 e1       	ldi	r28, 0x10	; 16
+ 174:	d1 e0       	ldi	r29, 0x01	; 1
+	init_exti();
+	Initialise_UART(25);
+	sei();
+	while(1)
+	{
+		if(data_flag==1)
+ 176:	80 91 0c 01 	lds	r24, 0x010C
+ 17a:	90 91 0d 01 	lds	r25, 0x010D
+ 17e:	81 30       	cpi	r24, 0x01	; 1
+ 180:	91 05       	cpc	r25, r1
+ 182:	29 f4       	brne	.+10     	; 0x18e <main+0x2a>
+		{
+			NRF24L01_Send();
+ 184:	ae d0       	rcall	.+348    	; 0x2e2 <NRF24L01_Send>
+			data_flag=0;
+ 186:	10 92 0d 01 	sts	0x010D, r1
+ 18a:	10 92 0c 01 	sts	0x010C, r1
+		}
+		if(irq_flag==1)
+ 18e:	80 91 0a 01 	lds	r24, 0x010A
+ 192:	90 91 0b 01 	lds	r25, 0x010B
+ 196:	81 30       	cpi	r24, 0x01	; 1
+ 198:	91 05       	cpc	r25, r1
+ 19a:	69 f7       	brne	.-38     	; 0x176 <main+0x12>
+		{
+			NRF24L01_Receive();
+ 19c:	fd d0       	rcall	.+506    	; 0x398 <NRF24L01_Receive>
+			Uart_Write(RX_BUF);
+ 19e:	ce 01       	movw	r24, r28
+ 1a0:	75 df       	rcall	.-278    	; 0x8c <Uart_Write>
+			irq_flag=0;
+ 1a2:	10 92 0b 01 	sts	0x010B, r1
+ 1a6:	10 92 0a 01 	sts	0x010A, r1
+ 1aa:	e5 cf       	rjmp	.-54     	; 0x176 <main+0x12>
+
+000001ac <flush_tx>:
+
+uint8_t RX_BUF[PLOAD_WIDTH];
+uint8_t TX_BUF[PLOAD_WIDTH];
+void flush_tx()
+{
+	CSN_0;
+ 1ac:	45 98       	cbi	0x08, 5	; 8
+	SPDR = FLUSH_TX;
+ 1ae:	81 ee       	ldi	r24, 0xE1	; 225
+ 1b0:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF)));
+ 1b2:	0d b4       	in	r0, 0x2d	; 45
+ 1b4:	07 fe       	sbrs	r0, 7
+ 1b6:	fd cf       	rjmp	.-6      	; 0x1b2 <flush_tx+0x6>
+	CSN_1;
+ 1b8:	45 9a       	sbi	0x08, 5	; 8
+}
+ 1ba:	08 95       	ret
+
+000001bc <flush_rx>:
+void flush_rx()
+{
+	CSN_0;
+ 1bc:	45 98       	cbi	0x08, 5	; 8
+	SPDR = FLUSH_RX;
+ 1be:	82 ee       	ldi	r24, 0xE2	; 226
+ 1c0:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF)));
+ 1c2:	0d b4       	in	r0, 0x2d	; 45
+ 1c4:	07 fe       	sbrs	r0, 7
+ 1c6:	fd cf       	rjmp	.-6      	; 0x1c2 <flush_rx+0x6>
+	CSN_1;
+ 1c8:	45 9a       	sbi	0x08, 5	; 8
+}
+ 1ca:	08 95       	ret
+
+000001cc <SPI_RW>:
+uint8_t SPI_RW(uint8_t Data)
+{
+	SPDR = Data;
+ 1cc:	8e bd       	out	0x2e, r24	; 46
+	while(!(SPSR & (1<<SPIF)));
+ 1ce:	0d b4       	in	r0, 0x2d	; 45
+ 1d0:	07 fe       	sbrs	r0, 7
+ 1d2:	fd cf       	rjmp	.-6      	; 0x1ce <SPI_RW+0x2>
+	return SPDR;
+ 1d4:	8e b5       	in	r24, 0x2e	; 46
+}
+ 1d6:	08 95       	ret
+
+000001d8 <SPI_RW_Reg>:
+/****Reg to register a byte written while returning state bytes****/
+uint8_t SPI_RW_Reg(uint8_t reg,uint8_t value)
+{
+ 1d8:	cf 93       	push	r28
+ 1da:	df 93       	push	r29
+ 1dc:	d6 2f       	mov	r29, r22
+	uint8_t status;
+	CSN_0;
+ 1de:	45 98       	cbi	0x08, 5	; 8
+	status=SPI_RW(reg);   //select register  and write value to it
+ 1e0:	f5 df       	rcall	.-22     	; 0x1cc <SPI_RW>
+ 1e2:	c8 2f       	mov	r28, r24
+	SPI_RW(value);   
+ 1e4:	8d 2f       	mov	r24, r29
+ 1e6:	f2 df       	rcall	.-28     	; 0x1cc <SPI_RW>
+	CSN_1;
+ 1e8:	45 9a       	sbi	0x08, 5	; 8
+	return(status); 
+}
+ 1ea:	8c 2f       	mov	r24, r28
+ 1ec:	df 91       	pop	r29
+ 1ee:	cf 91       	pop	r28
+ 1f0:	08 95       	ret
+
+000001f2 <SPI_Read_Reg>:
+/****To register reg read a byte, and return to state bytes*****/
+uint8_t SPI_Read_Reg(uint8_t reg)
+{
+	uint8_t status;
+	CSN_0;
+ 1f2:	45 98       	cbi	0x08, 5	; 8
+	SPI_RW(reg);
+ 1f4:	eb df       	rcall	.-42     	; 0x1cc <SPI_RW>
+    status = SPI_RW(0);
+ 1f6:	80 e0       	ldi	r24, 0x00	; 0
+ 1f8:	e9 df       	rcall	.-46     	; 0x1cc <SPI_RW>
+	CSN_1;
+ 1fa:	45 9a       	sbi	0x08, 5	; 8
+	return(status);
+}
+ 1fc:	08 95       	ret
+
+000001fe <SPI_Read_Buf>:
+/********Read the bytes bytes of data****************/
+uint8_t SPI_Read_Buf(uint8_t reg,uint8_t *pBuf,uint8_t bytes)
+{
+ 1fe:	ef 92       	push	r14
+ 200:	ff 92       	push	r15
+ 202:	0f 93       	push	r16
+ 204:	1f 93       	push	r17
+ 206:	cf 93       	push	r28
+ 208:	df 93       	push	r29
+ 20a:	16 2f       	mov	r17, r22
+ 20c:	e7 2e       	mov	r14, r23
+ 20e:	04 2f       	mov	r16, r20
+	uint8_t status,byte_ctr;
+
+	CSN_0;
+ 210:	45 98       	cbi	0x08, 5	; 8
+	status=SPI_RW(reg);       
+ 212:	dc df       	rcall	.-72     	; 0x1cc <SPI_RW>
+ 214:	f8 2e       	mov	r15, r24
+	for(byte_ctr=0;byte_ctr<bytes;byte_ctr++)
+ 216:	00 23       	and	r16, r16
+ 218:	49 f0       	breq	.+18     	; 0x22c <SPI_Read_Buf+0x2e>
+ 21a:	c1 2f       	mov	r28, r17
+ 21c:	de 2d       	mov	r29, r14
+ 21e:	10 e0       	ldi	r17, 0x00	; 0
+		pBuf[byte_ctr]=SPI_RW(0);
+ 220:	80 e0       	ldi	r24, 0x00	; 0
+ 222:	d4 df       	rcall	.-88     	; 0x1cc <SPI_RW>
+ 224:	89 93       	st	Y+, r24
+{
+	uint8_t status,byte_ctr;
+
+	CSN_0;
+	status=SPI_RW(reg);       
+	for(byte_ctr=0;byte_ctr<bytes;byte_ctr++)
+ 226:	1f 5f       	subi	r17, 0xFF	; 255
+ 228:	10 17       	cp	r17, r16
+ 22a:	d1 f7       	brne	.-12     	; 0x220 <SPI_Read_Buf+0x22>
+		pBuf[byte_ctr]=SPI_RW(0);
+
+	CSN_1;
+ 22c:	45 9a       	sbi	0x08, 5	; 8
+	return(status);
+}
+ 22e:	8f 2d       	mov	r24, r15
+ 230:	df 91       	pop	r29
+ 232:	cf 91       	pop	r28
+ 234:	1f 91       	pop	r17
+ 236:	0f 91       	pop	r16
+ 238:	ff 90       	pop	r15
+ 23a:	ef 90       	pop	r14
+ 23c:	08 95       	ret
+
+0000023e <SPI_Write_Buf>:
+/****************Write bytes bytes of data*************/
+uint8_t SPI_Write_Buf(uint8_t reg,uint8_t *pBuf,uint8_t bytes)
+{
+ 23e:	ff 92       	push	r15
+ 240:	0f 93       	push	r16
+ 242:	1f 93       	push	r17
+ 244:	cf 93       	push	r28
+ 246:	df 93       	push	r29
+ 248:	8b 01       	movw	r16, r22
+ 24a:	d4 2f       	mov	r29, r20
+	uint8_t status,byte_ctr;
+	CSN_0;
+ 24c:	45 98       	cbi	0x08, 5	; 8
+	status=SPI_RW(reg); 
+ 24e:	be df       	rcall	.-132    	; 0x1cc <SPI_RW>
+ 250:	f8 2e       	mov	r15, r24
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 252:	25 e3       	ldi	r18, 0x35	; 53
+ 254:	2a 95       	dec	r18
+ 256:	f1 f7       	brne	.-4      	; 0x254 <SPI_Write_Buf+0x16>
+ 258:	00 00       	nop
+	_delay_us(10);
+	for(byte_ctr=0;byte_ctr<bytes;byte_ctr++)
+ 25a:	dd 23       	and	r29, r29
+ 25c:	71 f0       	breq	.+28     	; 0x27a <SPI_Write_Buf+0x3c>
+
+	CSN_1;
+	return(status);
+}
+/****************Write bytes bytes of data*************/
+uint8_t SPI_Write_Buf(uint8_t reg,uint8_t *pBuf,uint8_t bytes)
+ 25e:	c8 01       	movw	r24, r16
+ 260:	01 96       	adiw	r24, 0x01	; 1
+ 262:	d1 50       	subi	r29, 0x01	; 1
+ 264:	fc 01       	movw	r30, r24
+ 266:	ed 0f       	add	r30, r29
+ 268:	f1 1d       	adc	r31, r1
+ 26a:	ef 01       	movw	r28, r30
+	uint8_t status,byte_ctr;
+	CSN_0;
+	status=SPI_RW(reg); 
+	_delay_us(10);
+	for(byte_ctr=0;byte_ctr<bytes;byte_ctr++)
+		SPI_RW(*(pBuf++));
+ 26c:	f8 01       	movw	r30, r16
+ 26e:	81 91       	ld	r24, Z+
+ 270:	8f 01       	movw	r16, r30
+ 272:	ac df       	rcall	.-168    	; 0x1cc <SPI_RW>
+{
+	uint8_t status,byte_ctr;
+	CSN_0;
+	status=SPI_RW(reg); 
+	_delay_us(10);
+	for(byte_ctr=0;byte_ctr<bytes;byte_ctr++)
+ 274:	0c 17       	cp	r16, r28
+ 276:	1d 07       	cpc	r17, r29
+ 278:	c9 f7       	brne	.-14     	; 0x26c <SPI_Write_Buf+0x2e>
+		SPI_RW(*(pBuf++));
+	CSN_1;
+ 27a:	45 9a       	sbi	0x08, 5	; 8
+	return(status);
+}
+ 27c:	8f 2d       	mov	r24, r15
+ 27e:	df 91       	pop	r29
+ 280:	cf 91       	pop	r28
+ 282:	1f 91       	pop	r17
+ 284:	0f 91       	pop	r16
+ 286:	ff 90       	pop	r15
+ 288:	08 95       	ret
+
+0000028a <TX_Mode>:
+void TX_Mode(uint8_t *tx_buf)
+{
+ 28a:	cf 93       	push	r28
+ 28c:	df 93       	push	r29
+ 28e:	ec 01       	movw	r28, r24
+	
+	CE_0;
+ 290:	44 98       	cbi	0x08, 4	; 8
+  	SPI_RW_Reg(WRITE_REG_NRF24L01 + CONFIG, ((1<<3)|(0<<2)|(1<<1)|(0<<0)|(1<<4)|(1<<5)));	
+ 292:	80 e2       	ldi	r24, 0x20	; 32
+ 294:	6a e3       	ldi	r22, 0x3A	; 58
+ 296:	a0 df       	rcall	.-192    	; 0x1d8 <SPI_RW_Reg>
+	flush_tx();
+ 298:	89 df       	rcall	.-238    	; 0x1ac <flush_tx>
+	SPI_Write_Buf(WR_TX_PLOAD, tx_buf, PLOAD_WIDTH);
+ 29a:	80 ea       	ldi	r24, 0xA0	; 160
+ 29c:	be 01       	movw	r22, r28
+ 29e:	4b e0       	ldi	r20, 0x0B	; 11
+ 2a0:	ce df       	rcall	.-100    	; 0x23e <SPI_Write_Buf>
+	CE_1;
+ 2a2:	44 9a       	sbi	0x08, 4	; 8
+ 2a4:	85 e3       	ldi	r24, 0x35	; 53
+ 2a6:	8a 95       	dec	r24
+ 2a8:	f1 f7       	brne	.-4      	; 0x2a6 <TX_Mode+0x1c>
+ 2aa:	00 00       	nop
+	_delay_us(10);
+} 
+ 2ac:	df 91       	pop	r29
+ 2ae:	cf 91       	pop	r28
+ 2b0:	08 95       	ret
+
+000002b2 <nRF24L01_Initial>:
+void nRF24L01_Initial(void)
+{
+	DDRB |= (1<<DDB5)|(1<<DDB3)|(1<<DDB2);
+ 2b2:	84 b1       	in	r24, 0x04	; 4
+ 2b4:	8c 62       	ori	r24, 0x2C	; 44
+ 2b6:	84 b9       	out	0x04, r24	; 4
+	DDRB &= ~(1<<DDB4);
+ 2b8:	24 98       	cbi	0x04, 4	; 4
+	DDRC |= (1<<4) | (1<<5);
+ 2ba:	87 b1       	in	r24, 0x07	; 7
+ 2bc:	80 63       	ori	r24, 0x30	; 48
+ 2be:	87 b9       	out	0x07, r24	; 7
+	SPCR|= (1<<SPE)|(1<<MSTR)|(1<<SPR1)|(1<<SPI2X);    
+ 2c0:	8c b5       	in	r24, 0x2c	; 44
+ 2c2:	83 65       	ori	r24, 0x53	; 83
+ 2c4:	8c bd       	out	0x2c, r24	; 44
+ 	CSN_1;
+ 2c6:	45 9a       	sbi	0x08, 5	; 8
+	CE_0; 
+ 2c8:	44 98       	cbi	0x08, 4	; 8
+}
+ 2ca:	08 95       	ret
+
+000002cc <RX_Mode>:
+	TX_Mode(TX_BUF);
+	RX_Mode();
+}
+void RX_Mode(void)
+{
+	CE_0;	
+ 2cc:	44 98       	cbi	0x08, 4	; 8
+	flush_rx();
+ 2ce:	76 df       	rcall	.-276    	; 0x1bc <flush_rx>
+  	SPI_RW_Reg(WRITE_REG_NRF24L01 + CONFIG, ((1<<3)|(0<<2)|(1<<1)|(1<<0)|(1<<4)|(1<<5))); 
+ 2d0:	80 e2       	ldi	r24, 0x20	; 32
+ 2d2:	6b e3       	ldi	r22, 0x3B	; 59
+ 2d4:	81 df       	rcall	.-254    	; 0x1d8 <SPI_RW_Reg>
+  	CE_1;
+ 2d6:	44 9a       	sbi	0x08, 4	; 8
+ 2d8:	85 e3       	ldi	r24, 0x35	; 53
+ 2da:	8a 95       	dec	r24
+ 2dc:	f1 f7       	brne	.-4      	; 0x2da <RX_Mode+0xe>
+ 2de:	00 00       	nop
+	_delay_us(10);
+}
+ 2e0:	08 95       	ret
+
+000002e2 <NRF24L01_Send>:
+	CE_1;
+	RX_Mode();
+}
+void NRF24L01_Send()
+{
+	TX_Mode(TX_BUF);
+ 2e2:	8b e1       	ldi	r24, 0x1B	; 27
+ 2e4:	91 e0       	ldi	r25, 0x01	; 1
+ 2e6:	d1 df       	rcall	.-94     	; 0x28a <TX_Mode>
+	RX_Mode();
+ 2e8:	f1 df       	rcall	.-30     	; 0x2cc <RX_Mode>
+}
+ 2ea:	08 95       	ret
+
+000002ec <nRF24L01_Config>:
+	SPCR|= (1<<SPE)|(1<<MSTR)|(1<<SPR1)|(1<<SPI2X);    
+ 	CSN_1;
+	CE_0; 
+}
+void nRF24L01_Config(void)
+{
+ 2ec:	cf 93       	push	r28
+ 2ee:	df 93       	push	r29
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + CONFIG, ((1<<3)|(0<<2)|(1<<4)|(1<<5))); 
+ 2f0:	80 e2       	ldi	r24, 0x20	; 32
+ 2f2:	68 e3       	ldi	r22, 0x38	; 56
+ 2f4:	71 df       	rcall	.-286    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + EN_AA, 0x3F);
+ 2f6:	81 e2       	ldi	r24, 0x21	; 33
+ 2f8:	6f e3       	ldi	r22, 0x3F	; 63
+ 2fa:	6e df       	rcall	.-292    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + EN_RXADDR, 0x3F); 
+ 2fc:	82 e2       	ldi	r24, 0x22	; 34
+ 2fe:	6f e3       	ldi	r22, 0x3F	; 63
+ 300:	6b df       	rcall	.-298    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + SETUP_AW, 0x03); 
+ 302:	83 e2       	ldi	r24, 0x23	; 35
+ 304:	63 e0       	ldi	r22, 0x03	; 3
+ 306:	68 df       	rcall	.-304    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + SETUP_RETR, 0x4F); 
+ 308:	84 e2       	ldi	r24, 0x24	; 36
+ 30a:	6f e4       	ldi	r22, 0x4F	; 79
+ 30c:	65 df       	rcall	.-310    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + RF_CH, 15);
+ 30e:	85 e2       	ldi	r24, 0x25	; 37
+ 310:	6f e0       	ldi	r22, 0x0F	; 15
+ 312:	62 df       	rcall	.-316    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + RF_SETUP,0x0E);
+ 314:	86 e2       	ldi	r24, 0x26	; 38
+ 316:	6e e0       	ldi	r22, 0x0E	; 14
+ 318:	5f df       	rcall	.-322    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + STATUS,0x0E);
+ 31a:	87 e2       	ldi	r24, 0x27	; 39
+ 31c:	6e e0       	ldi	r22, 0x0E	; 14
+ 31e:	5c df       	rcall	.-328    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + OBSERVE_TX,0x00);
+ 320:	88 e2       	ldi	r24, 0x28	; 40
+ 322:	60 e0       	ldi	r22, 0x00	; 0
+ 324:	59 df       	rcall	.-334    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + FIFO_STATUS,0x11);
+ 326:	87 e3       	ldi	r24, 0x37	; 55
+ 328:	61 e1       	ldi	r22, 0x11	; 17
+ 32a:	56 df       	rcall	.-340    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + CD,0x00);
+ 32c:	89 e2       	ldi	r24, 0x29	; 41
+ 32e:	60 e0       	ldi	r22, 0x00	; 0
+ 330:	53 df       	rcall	.-346    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + RX_PW_P0, PLOAD_WIDTH); 
+ 332:	81 e3       	ldi	r24, 0x31	; 49
+ 334:	6b e0       	ldi	r22, 0x0B	; 11
+ 336:	50 df       	rcall	.-352    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + RX_PW_P1, PLOAD_WIDTH);
+ 338:	82 e3       	ldi	r24, 0x32	; 50
+ 33a:	6b e0       	ldi	r22, 0x0B	; 11
+ 33c:	4d df       	rcall	.-358    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + RX_PW_P2, PLOAD_WIDTH);
+ 33e:	83 e3       	ldi	r24, 0x33	; 51
+ 340:	6b e0       	ldi	r22, 0x0B	; 11
+ 342:	4a df       	rcall	.-364    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + RX_PW_P3, PLOAD_WIDTH);
+ 344:	84 e3       	ldi	r24, 0x34	; 52
+ 346:	6b e0       	ldi	r22, 0x0B	; 11
+ 348:	47 df       	rcall	.-370    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + RX_PW_P4, PLOAD_WIDTH);
+ 34a:	85 e3       	ldi	r24, 0x35	; 53
+ 34c:	6b e0       	ldi	r22, 0x0B	; 11
+ 34e:	44 df       	rcall	.-376    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + RX_PW_P5, PLOAD_WIDTH);
+ 350:	86 e3       	ldi	r24, 0x36	; 54
+ 352:	6b e0       	ldi	r22, 0x0B	; 11
+ 354:	41 df       	rcall	.-382    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + RF_SETUP, ((1<<3)|(3<<1)));
+ 356:	86 e2       	ldi	r24, 0x26	; 38
+ 358:	6e e0       	ldi	r22, 0x0E	; 14
+ 35a:	3e df       	rcall	.-388    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + DYNPD, 0x00);
+ 35c:	8c e3       	ldi	r24, 0x3C	; 60
+ 35e:	60 e0       	ldi	r22, 0x00	; 0
+ 360:	3b df       	rcall	.-394    	; 0x1d8 <SPI_RW_Reg>
+	SPI_RW_Reg(WRITE_REG_NRF24L01 + CONFIG, ((1<<3)|(0<<2)|(1<<4)|(1<<5)));
+ 362:	80 e2       	ldi	r24, 0x20	; 32
+ 364:	68 e3       	ldi	r22, 0x38	; 56
+ 366:	38 df       	rcall	.-400    	; 0x1d8 <SPI_RW_Reg>
+		
+	flush_rx();
+ 368:	29 df       	rcall	.-430    	; 0x1bc <flush_rx>
+	flush_tx();
+ 36a:	20 df       	rcall	.-448    	; 0x1ac <flush_tx>
+	
+	SPI_Write_Buf(WRITE_REG_NRF24L01 + RX_ADDR_P1, RX_ADDRESS, TX_ADR_WIDTH);
+ 36c:	8b e2       	ldi	r24, 0x2B	; 43
+ 36e:	60 e0       	ldi	r22, 0x00	; 0
+ 370:	71 e0       	ldi	r23, 0x01	; 1
+ 372:	45 e0       	ldi	r20, 0x05	; 5
+ 374:	64 df       	rcall	.-312    	; 0x23e <SPI_Write_Buf>
+	CE_1; 
+ 376:	44 9a       	sbi	0x08, 4	; 8
+	CE_0; 
+ 378:	44 98       	cbi	0x08, 4	; 8
+	SPI_Write_Buf(WRITE_REG_NRF24L01 + TX_ADDR, TX_ADDRESS, TX_ADR_WIDTH);
+ 37a:	c5 e0       	ldi	r28, 0x05	; 5
+ 37c:	d1 e0       	ldi	r29, 0x01	; 1
+ 37e:	80 e3       	ldi	r24, 0x30	; 48
+ 380:	be 01       	movw	r22, r28
+ 382:	45 e0       	ldi	r20, 0x05	; 5
+ 384:	5c df       	rcall	.-328    	; 0x23e <SPI_Write_Buf>
+	SPI_Write_Buf(WRITE_REG_NRF24L01 + RX_ADDR_P0, TX_ADDRESS, TX_ADR_WIDTH);
+ 386:	8a e2       	ldi	r24, 0x2A	; 42
+ 388:	be 01       	movw	r22, r28
+ 38a:	45 e0       	ldi	r20, 0x05	; 5
+ 38c:	58 df       	rcall	.-336    	; 0x23e <SPI_Write_Buf>
+	CE_1;
+ 38e:	44 9a       	sbi	0x08, 4	; 8
+	RX_Mode();
+ 390:	9d df       	rcall	.-198    	; 0x2cc <RX_Mode>
+}
+ 392:	df 91       	pop	r29
+ 394:	cf 91       	pop	r28
+ 396:	08 95       	ret
+
+00000398 <NRF24L01_Receive>:
+	_delay_us(10);
+}
+void NRF24L01_Receive(void)
+{
+	uint8_t status=0x01;
+	CE_0;
+ 398:	44 98       	cbi	0x08, 4	; 8
+ 39a:	85 e3       	ldi	r24, 0x35	; 53
+ 39c:	8a 95       	dec	r24
+ 39e:	f1 f7       	brne	.-4      	; 0x39c <NRF24L01_Receive+0x4>
+ 3a0:	00 00       	nop
+	_delay_us(10);
+	status=SPI_Read_Reg(STATUS);					    
+ 3a2:	87 e0       	ldi	r24, 0x07	; 7
+ 3a4:	26 df       	rcall	.-436    	; 0x1f2 <SPI_Read_Reg>
+	if(status & (1<<6))								    
+ 3a6:	86 ff       	sbrs	r24, 6
+ 3a8:	08 c0       	rjmp	.+16     	; 0x3ba <NRF24L01_Receive+0x22>
+	{
+		SPI_Read_Buf(RD_RX_PLOAD,RX_BUF,PLOAD_WIDTH);    // read receive payload from RX_FIFO buffer
+ 3aa:	81 e6       	ldi	r24, 0x61	; 97
+ 3ac:	60 e1       	ldi	r22, 0x10	; 16
+ 3ae:	71 e0       	ldi	r23, 0x01	; 1
+ 3b0:	4b e0       	ldi	r20, 0x0B	; 11
+ 3b2:	25 df       	rcall	.-438    	; 0x1fe <SPI_Read_Buf>
+		SPI_RW_Reg(WRITE_REG_NRF24L01 + STATUS, (1<<6));      
+ 3b4:	87 e2       	ldi	r24, 0x27	; 39
+ 3b6:	60 e4       	ldi	r22, 0x40	; 64
+ 3b8:	0f df       	rcall	.-482    	; 0x1d8 <SPI_RW_Reg>
+	}
+	CE_1;
+ 3ba:	44 9a       	sbi	0x08, 4	; 8
+
+}
+ 3bc:	08 95       	ret
+
+000003be <_exit>:
+ 3be:	f8 94       	cli
+
+000003c0 <__stop_program>:
+ 3c0:	ff cf       	rjmp	.-2      	; 0x3c0 <__stop_program>

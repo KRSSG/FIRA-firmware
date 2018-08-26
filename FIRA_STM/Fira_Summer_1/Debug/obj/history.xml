@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wall -ffunction-sections -g -O3 -c -DSTM32F405RG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -D__FPU_USED -DSUPPORT_CPLUSPLUS -I..\..\..\..\..\Users\hp\Desktop\Afterlife Reborn-FIRA\Afterlife Reborn-FIRA\FIRA_KOREA\FIRA_KOREA\cmsis_boot -I..\..\..\..\..\Users\hp\Desktop\Afterlife Reborn-FIRA\Afterlife Reborn-FIRA\FIRA_KOREA\FIRA_KOREA\cmsis_lib\include -I..\..\..\..\..\Users\hp\Desktop\Afterlife Reborn-FIRA\Afterlife Reborn-FIRA -I..\..\..\..\..\Users\hp\Desktop\Afterlife Reborn-FIRA\Afterlife Reborn-FIRA\FIRA_KOREA\FIRA_KOREA\cmsis -I..\..\..\..\..\Users\hp\Desktop\Afterlife Reborn-FIRA\Afterlife Reborn-FIRA\FIRA_KOREA -I..\..\..\..\..\Users\hp\Desktop\Afterlife Reborn-FIRA\Afterlife Reborn-FIRA\FIRA_KOREA\FIRA_KOREA\cmsis_lib -I..\..\..\..\..\Users\hp\Desktop\Afterlife Reborn-FIRA\Afterlife Reborn-FIRA\FIRA_KOREA\FIRA_KOREA">
+      <target file="stm32f4xx_exti.o" lastModified="150dd7cdb3d">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_exti.c" lastModified="14654ba7c3f"/>
+      </target>
+      <target file="stm32f4xx_gpio.o" lastModified="150dd7cd60b">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14654ba70d7"/>
+      </target>
+      <target file="stm32f4xx_flash.o" lastModified="150dd7cd7bf">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="14654c80ff9"/>
+      </target>
+      <target file="stm32f4xx_syscfg.o" lastModified="150dd7cc8be">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_syscfg.c" lastModified="14e0522e347"/>
+      </target>
+      <target file="tm_stm32f4_gpio.o" lastModified="150dd7cdd88">
+         <source file="..\..\..\tm_stm32f4_gpio.c" lastModified="14d0929f4e5"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="150dd7ccebf">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14654fd9a12"/>
+      </target>
+      <target file="stm32f4xx_tim.o" lastModified="150dd7ce053">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14e05223fdb"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="150dd7cd868">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14654dd3739"/>
+      </target>
+      <target file="misc.o" lastModified="150dd7cdc40">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14e0522a051"/>
+      </target>
+      <target file="stm32f4xx_spi.o" lastModified="150dd7cda7c">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14e0520ebd7"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="150dd7cd301">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14654ba49d4"/>
+      </target>
+      <target file="syscalls.o" lastModified="150dd7cd997">
+         <source file="..\..\..\syscalls\syscalls.c" lastModified="14654ba2e49"/>
+      </target>
+      <target file="tm_stm32f4_delay.o" lastModified="150dd7cd3db">
+         <source file="..\..\..\tm_stm32f4_delay.c" lastModified="146534976f0"/>
+      </target>
+      <target file="tm_stm32f4_spi.o" lastModified="150dd7cd544">
+         <source file="..\..\..\tm_stm32f4_spi.c" lastModified="149b2fed24a"/>
+      </target>
+      <target file="tm_stm32f4_nrf24l01.o" lastModified="150dd7ccde0">
+         <source file="..\..\..\tm_stm32f4_nrf24l01.c" lastModified="14dc5ebdcd8"/>
+      </target>
+      <target file="main.o" lastModified="150ddc27895">
+         <source file="..\..\..\main.c" lastModified="150ddc2751a"/>
+      </target>
+      <target file="Peripherals.o" lastModified="150dd7ce146">
+         <source file="..\..\..\Peripherals.c" lastModified="14e3b02bf59"/>
+      </target>
+      <target file="stm32f4xx_usart.o" lastModified="150dd7ccb55">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_usart.c" lastModified="14e05232c47"/>
+      </target>
+   </processor>
+</history>
